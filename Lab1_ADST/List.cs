@@ -51,6 +51,8 @@ namespace Lab1_ADST
             }
         } // AddItem
 
+
+
         public void Print()
         {
             Node<T> n = first;
@@ -70,6 +72,21 @@ namespace Lab1_ADST
 
             Console.WriteLine("___________________________________________");
         } // Print
+
+        public bool Search(T item)
+        {
+            Node<T> n = first;
+
+            while (n != null)
+            {
+                if (n.data.Equals(item))
+                    return true;
+
+                n = n.next;
+            }
+
+            return false;
+        } // Search
 
     } // List
 

@@ -6,7 +6,14 @@ namespace Lab1_ADST
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var a = new List<int>();
+
+            a.AddItem(14);
+            a.AddItem(0);
+            a.AddItem(-45);
+            a.Print();
+            Console.WriteLine(a.Search(-45));
+            Console.WriteLine(a.Search(-4));
         }
     }
 }
