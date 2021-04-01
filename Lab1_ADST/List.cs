@@ -141,6 +141,12 @@ namespace Lab1_ADST
             }
         } // DeleteItem
 
+        public void MakeEmpty()
+        {
+            first = null;
+            _count = 0;
+        } // MakeEmpty
+
     } // List
 
 }
