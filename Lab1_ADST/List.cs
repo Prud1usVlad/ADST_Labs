@@ -88,6 +88,22 @@ namespace Lab1_ADST
             return false;
         } // Search
 
+        public T Retrieve(T item) // finds and returns item
+        {
+            Node<T> n = first;
+
+
+            while (n != null)
+            {
+                if (n.data.Equals(item))
+                    return n.data;
+
+                n = n.next;
+            }
+
+            return default(T);
+        } // Retrieve
+
     } // List
 
 }
