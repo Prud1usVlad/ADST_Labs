@@ -14,6 +14,10 @@ namespace Lab1_ADST
             a.Print();
             Console.WriteLine(a.Search(-45));
             Console.WriteLine(a.Search(-4));
+            a.DeleteItem(0);
+            Console.WriteLine(a.Retrieve(15));
+            Console.WriteLine(a.Retrieve(-45));
+            a.Print();
         }
     }
 }

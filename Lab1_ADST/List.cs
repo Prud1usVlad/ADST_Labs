@@ -104,6 +104,43 @@ namespace Lab1_ADST
             return default(T);
         } // Retrieve
 
+        public T DeleteItem(T item)
+        {
+            if (!Search(item))
+            {
+                Console.WriteLine("There is no such element in the list");
+                return default(T);
+            }
+            else if (IsEmpty())
+            {
+                Console.WriteLine("There is an empty list");
+                return default(T);
+            }
+
+
+            Node<T> current = first;
+            Node<T> previous = null;
+
+            while (!item.Equals(current.data) && current.next != null) // find right element
+            {
+                previous = current;
+                current = current.next;
+            }
+
+            if (current == first && item.Equals(current.data)) // delete from first position
+            {
+                first = current.next;
+                _count--;
+                return current.data;
+            }
+            else // delete from other positions
+            {
+                previous.next = current.next;
+                _count--;
+                return current.data;
+            }
+        } // DeleteItem
+
     } // List
 
 }
