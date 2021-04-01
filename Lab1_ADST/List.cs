@@ -16,5 +16,13 @@ namespace Lab1_ADST
         } // constructor 
 
         public int ListSize() { return _count; }
-    }
+
+        public bool IsEmpty()
+        {
+            return (first == null) ? true : false;
+        }
+
+
+    } // List
+
 }
