@@ -51,6 +51,26 @@ namespace Lab1_ADST
             }
         } // AddItem
 
+        public void Print()
+        {
+            Node<T> n = first;
+            Console.WriteLine("List content: ");
+            if (IsEmpty())
+                Console.WriteLine("List is empty.");
+            else
+            {
+                while (n != null)
+                {
+                    Console.Write($"| {n.data} ");
+                    n = n.next;
+                }
+
+                Console.WriteLine("|");
+            }
+
+            Console.WriteLine("___________________________________________");
+        } // Print
+
     } // List
 
 }
