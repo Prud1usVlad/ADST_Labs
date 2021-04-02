@@ -41,11 +41,10 @@ namespace Lab1_ADST
                     current = current.next;
                 }
 
-                if (current == first && item.CompareTo(current.data) <= 0) // insertt to the first position
-                    if (current == first && item.CompareTo(current.data) <= 0) // insrrt to the first position
-                        first = new Node<T>(item, current);
-                    else  // insert to the last and middle position
-                        previous.next = new Node<T>(item, current);
+                if (current == first && item.CompareTo(current.data) <= 0) // insert to the first position
+                    first = new Node<T>(item, current);
+                else  // insert to the last and middle position
+                    previous.next = new Node<T>(item, current);
 
                 _count++;
             }

@@ -7,7 +7,8 @@ namespace Lab1_ADST
         static void Main(string[] args)
         {
             var a = new List<int>();
-
+            Console.Write("List empty: ");
+            Console.WriteLine(a.IsEmpty());
             a.AddItem(14);
             a.AddItem(2);
             a.AddItem(5);
@@ -29,7 +30,7 @@ namespace Lab1_ADST
             Console.WriteLine(a.Search(-5));
             Console.Write("Search elemet 15: ");
             Console.WriteLine(a.Search(15));
-
+            Console.WriteLine("Deleting elements -4 and 2");
             a.DeleteItem(-4);
             a.DeleteItem(2);
             a.Print();
