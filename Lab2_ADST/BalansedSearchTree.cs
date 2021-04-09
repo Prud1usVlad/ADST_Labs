@@ -29,6 +29,27 @@ namespace Lab2_ADST
             return n;
         }
 
+        public void Preorder()
+        {
+            Console.WriteLine("Preorder:");
+            Console.Write("| ");
+            Preorder_rec(root);
+            Console.WriteLine("");
+        }
+
+        private void Preorder_rec(BSTNode<T> n)
+        {
+            if (n == null)
+                return;
+            else
+            {
+                Console.Write(n.data + " | ");
+                Preorder_rec(n.leftSubTree);
+                Preorder_rec(n.rightSubTree);
+            }
+        }
+
+
 
     }
 }
