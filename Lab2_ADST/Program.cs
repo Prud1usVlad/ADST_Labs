@@ -6,7 +6,7 @@ namespace Lab2_ADST
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
