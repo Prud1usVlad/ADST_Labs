@@ -94,6 +94,19 @@ namespace Lab2_ADST
             root = null;
         }
 
+        public int Size()
+        {
+            return Size_rec(root);
+        }
+
+        private int Size_rec(BSTNode<T> n)
+        {
+            if (n == null)
+                return 0;
+            else
+                return Size_rec(n.leftSubTree) + Size_rec(n.rightSubTree) + 1;
+        }
+
         public void Preorder()
         {
             Console.WriteLine("Preorder:");

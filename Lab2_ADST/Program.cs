@@ -23,11 +23,8 @@ namespace Lab2_ADST
             a.Postorder();
             a.DeleteItem(10);
             a.Preorder();
+            Console.WriteLine(a.Size());
 
-
-
-            Console.WriteLine(a.FindMin(a.root));
-            Console.WriteLine(a.Search(-3));
 
         }
     }
