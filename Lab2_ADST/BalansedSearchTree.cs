@@ -29,6 +29,23 @@ namespace Lab2_ADST
             return n;
         }
 
+        public bool Search(T item)
+        {
+            return Search_rec(item, root);
+        }
+
+        private bool Search_rec(T item, BSTNode<T> n)
+        {
+            if (n == null)
+                return false;
+            else if (item.Equals(n.data))
+                return true;
+            else if (item.CompareTo(n.data) < 0)
+                return Search_rec(item, n.leftSubTree);
+            else
+                return Search_rec(item, n.rightSubTree);
+        }
+
         public void Preorder()
         {
             Console.WriteLine("Preorder:");

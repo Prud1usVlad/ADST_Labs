@@ -18,6 +18,9 @@ namespace Lab2_ADST
             a.Inorder();
             a.Postorder();
 
+            Console.WriteLine(a.Search(12));
+            Console.WriteLine(a.Search(-3));
+
         }
     }
 }
