@@ -69,8 +69,24 @@ namespace Lab2_ADST
             }
         }
 
+        public void Postorder()
+        {
+            Console.WriteLine("Postorder");
+            Console.Write("| ");
+            Postorder_rec(root);
+            Console.WriteLine("");
+        }
 
-
-
+        private void Postorder_rec(BSTNode<T> n)
+        {
+            if (n == null)
+                return;
+            else
+            {
+                Postorder_rec(n.leftSubTree);
+                Postorder_rec(n.rightSubTree);
+                Console.Write(n.data + " | ");
+            }
+        }
     }
 }
