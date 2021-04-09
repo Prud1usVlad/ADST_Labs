@@ -8,15 +8,23 @@ namespace Lab2_ADST
         {
             var a = new BalansedSearchTree<int>();
 
+            a.AddItem(15);
             a.AddItem(10);
-            a.AddItem(1);
-            a.AddItem(20);
-            a.AddItem(8);
-            a.AddItem(9);
+            a.AddItem(7);
+            a.AddItem(50);
             a.AddItem(12);
-            a.Preorder();
+            a.AddItem(11);
+            a.AddItem(45);
+            a.AddItem(13);
+            a.AddItem(55);
+            a.AddItem(14);
             a.Inorder();
+            a.Preorder();
             a.Postorder();
+            a.DeleteItem(10);
+            a.Preorder();
+
+
 
             Console.WriteLine(a.FindMin(a.root));
             Console.WriteLine(a.Search(-3));

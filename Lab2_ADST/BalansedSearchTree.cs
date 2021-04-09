@@ -54,6 +54,41 @@ namespace Lab2_ADST
                 return FindMin(n.leftSubTree);
         }
 
+        public void DeleteItem(T item)
+        {
+            if (Search(item))
+                root = DeleteItem_rec(item, root);
+            else
+                Console.WriteLine("Item not found");
+        }
+
+        public BSTNode<T> DeleteItem_rec(T item, BSTNode<T> n)
+        {
+            if (n == null)
+                return n;
+            else if (item.CompareTo(n.data) < 0)
+                n.leftSubTree = DeleteItem_rec(item, n.leftSubTree);
+            else if (item.CompareTo(n.data) > 0)
+                n.rightSubTree = DeleteItem_rec(item, n.rightSubTree);
+            // if node we need to delete has two child nodes, we need to
+            // replase it with the smallest node ftom it's right subtree
+            else if (n.rightSubTree != null && n.leftSubTree != null)
+            {
+                n.data = FindMin(n.rightSubTree);
+                n.rightSubTree = DeleteItem_rec(n.data, n.rightSubTree);
+            }
+            // if if node we need to delete has only one child node, we need 
+            // to link its child node to its root
+            else if (n.rightSubTree != null)
+                n = n.rightSubTree;
+            else if (n.leftSubTree != null)
+                n = n.leftSubTree;
+            else
+                n = null;
+
+            return n;
+        }
+
         public void Preorder()
         {
             Console.WriteLine("Preorder:");
