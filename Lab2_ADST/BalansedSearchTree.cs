@@ -62,7 +62,7 @@ namespace Lab2_ADST
                 Console.WriteLine("Item not found");
         }
 
-        public BSTNode<T> DeleteItem_rec(T item, BSTNode<T> n)
+        private BSTNode<T> DeleteItem_rec(T item, BSTNode<T> n)
         {
             if (n == null)
                 return n;
@@ -87,6 +87,11 @@ namespace Lab2_ADST
                 n = null;
 
             return n;
+        }
+
+        public void MakeEmpty()
+        {
+            root = null;
         }
 
         public void Preorder()
