@@ -6,7 +6,7 @@ namespace Lab2_ADST
 {
     class BalansedSearchTree<T> where T: IComparable
     {
-        BSTNode<T> root;
+        public BSTNode<T> root;
 
         public void AddItem(T item)
         {
@@ -44,6 +44,14 @@ namespace Lab2_ADST
                 return Search_rec(item, n.leftSubTree);
             else
                 return Search_rec(item, n.rightSubTree);
+        }
+
+        public T FindMin(BSTNode<T> n)
+        {
+            if (n.leftSubTree == null)
+                return n.data;
+            else
+                return FindMin(n.leftSubTree);
         }
 
         public void Preorder()
