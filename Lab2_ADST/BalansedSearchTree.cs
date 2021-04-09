@@ -49,6 +49,27 @@ namespace Lab2_ADST
             }
         }
 
+        public void Inorder()
+        {
+            Console.WriteLine("Inorder:");
+            Console.Write("| ");
+            Inorder_rec(root);
+            Console.WriteLine("");
+        }
+
+        private void Inorder_rec(BSTNode<T> n)
+        {
+            if (n == null)
+                return;
+            else
+            {
+                Inorder_rec(n.leftSubTree);
+                Console.Write(n.data + " | ");
+                Inorder_rec(n.rightSubTree);
+            }
+        }
+
+
 
 
     }
