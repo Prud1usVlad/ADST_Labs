@@ -246,6 +246,24 @@ namespace Lab1_ADST
 
         }
 
+
+        public void Add(T item)
+        {
+            if (first == null)
+                first = new Node<T>(item);
+            else
+                Add_rec(item, first);
+        }
+
+        public void Add_rec(T item, Node<T> n)
+        {
+            if (n.next == null)
+                n.next = new Node<T>(item);
+            else
+                Add_rec(item, n.next);
+        }
+
+
     } // List
 
 }
