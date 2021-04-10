@@ -263,6 +263,31 @@ namespace Lab1_ADST
                 Add_rec(item, n.next);
         }
 
+        public void Delete(int k)
+        {
+
+            Node<T> current = first;
+            Node<T> previous = null;
+            for (var i = 1; i <= k; i++)
+            {
+                if (i == k && current == first)
+                {
+                    first = current.next;
+                    return;
+                }
+                else if (i == k)
+                {
+                    previous.next = current.next;
+                    return;
+                }
+
+                previous = current;
+                current = current.next;
+
+            }
+
+        }
+
 
     } // List
 
