@@ -107,6 +107,14 @@ namespace Lab2_ADST
                 return Size_rec(n.leftSubTree) + Size_rec(n.rightSubTree) + 1;
         }
 
+        public int CheckHeight(BSTNode<T> n)
+        {
+            if (n == null)
+                return 0;
+            else
+                return Math.Max(CheckHeight(n.leftSubTree), CheckHeight(n.rightSubTree)) + 1;
+        }
+
         public void Preorder()
         {
             Console.WriteLine("Preorder:");
