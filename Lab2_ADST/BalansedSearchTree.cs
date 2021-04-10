@@ -54,6 +54,7 @@ namespace Lab2_ADST
                 return FindMin(n.leftSubTree);
         }
 
+        
         public void DeleteItem(T item)
         {
             if (Search(item))
@@ -114,6 +115,23 @@ namespace Lab2_ADST
             else
                 return Math.Max(CheckHeight(n.leftSubTree), CheckHeight(n.rightSubTree)) + 1;
         }
+
+        public void Balance(BSTNode<T> n)
+        {
+
+            // если в самой длинной стороне есть проблемы с глубиной, то крутим ее, если нет то идем дальше по сторонам  
+            int LH = CheckHeight(n.leftSubTree);
+            int RH = CheckHeight(n.rightSubTree);
+
+            if (LH - RH > 1)
+                Balance(n.leftSubTree);
+            else if (RH - LH > 1)
+                Balance(n.rightSubTree);
+            
+
+
+
+        }       
 
         public void Preorder()
         {
