@@ -16,15 +16,19 @@ namespace Lab2_ADST
         private BSTNode<T> AddItem_rec(T item, BSTNode<T> n)
         {
             if (n == null)
-            {
                 n = new BSTNode<T>(item);
-                n.leftSubTree = n.rightSubTree = null;
-            }
             else if (item.CompareTo(n.data) < 0)
                 n.leftSubTree = AddItem_rec(item, n.leftSubTree);
             else
                 n.rightSubTree = AddItem_rec(item, n.rightSubTree);
 
+
+            int balance = CheckHeight(n.leftSubTree) - CheckHeight(n.rightSubTree);
+
+
+            BSTNode<T> temp = Balance(n, item);
+
+            if (temp != null) n = temp;
 
             return n;
         }
@@ -87,6 +91,11 @@ namespace Lab2_ADST
             else
                 n = null;
 
+            BSTNode<T> temp = null;
+            if (n != null) temp = Balance(n, item);
+
+            if (temp != null) n = temp;
+
             return n;
         }
 
@@ -116,22 +125,51 @@ namespace Lab2_ADST
                 return Math.Max(CheckHeight(n.leftSubTree), CheckHeight(n.rightSubTree)) + 1;
         }
 
-        public void Balance(BSTNode<T> n)
+        public BSTNode<T> Balance(BSTNode<T> n, T item)
         {
+            int balance = CheckHeight(n.leftSubTree) - CheckHeight(n.rightSubTree);
 
-            // если в самой длинной стороне есть проблемы с глубиной, то крутим ее, если нет то идем дальше по сторонам  
-            int LH = CheckHeight(n.leftSubTree);
-            int RH = CheckHeight(n.rightSubTree);
+            BSTNode<T> res = null;
 
-            if (LH - RH > 1)
-                Balance(n.leftSubTree);
-            else if (RH - LH > 1)
-                Balance(n.rightSubTree);
-            
+            if (balance > 1 && item.CompareTo(n.leftSubTree.data) < 0)
+                res = RightRotate(n);
+            else if (balance > 1 && item.CompareTo(n.leftSubTree.data) > 0)
+            {
+                n.leftSubTree = LeftRotate(n.leftSubTree);
+                res = RightRotate(n);
+            }
+            else if (balance < -1 && item.CompareTo(n.rightSubTree.data) > 0)
+                res = LeftRotate(n);
+            else if (balance < -1 && item.CompareTo(n.rightSubTree.data) < 0)
+            {
+                n.rightSubTree = RightRotate(n.rightSubTree);
+                res = LeftRotate(n);
+            }
 
-
-
+            return res;
         }       
+
+        private BSTNode<T> RightRotate(BSTNode<T> node)
+        {
+            var nodeLeft = node.leftSubTree;
+            var temp = nodeLeft.rightSubTree;
+
+            nodeLeft.rightSubTree = node;
+            node.leftSubTree = temp;
+
+            return nodeLeft;
+        }
+
+        private BSTNode<T> LeftRotate(BSTNode<T> node)
+        {
+            var nodeRight = node.rightSubTree;
+            var temp = nodeRight.leftSubTree;
+
+            nodeRight.leftSubTree = node;
+            node.rightSubTree = temp;
+
+            return nodeRight;
+        }
 
         public void Preorder()
         {

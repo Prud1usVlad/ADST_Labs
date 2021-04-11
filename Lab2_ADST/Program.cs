@@ -19,10 +19,13 @@ namespace Lab2_ADST
             a.AddItem(55);
             a.AddItem(14);
             a.Inorder();
+            a.Preorder();
+            a.Postorder();
+
+            a.DeleteItem(50);
+            a.DeleteItem(55);
+            a.Preorder();
             
-            Console.WriteLine(a.CheckHeight(a.root.leftSubTree));
-
-
         }
     }
 }
