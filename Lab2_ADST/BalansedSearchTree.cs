@@ -13,6 +13,61 @@ namespace Lab2_ADST
             root = AddItem_rec(item, root);
         }
 
+        public bool Search(T item)
+        {
+            return Search_rec(item, root);
+        }
+
+        public T FindMin(BSTNode<T> n)
+        {
+            if (n.leftSubTree == null)
+                return n.data;
+            else
+                return FindMin(n.leftSubTree);
+        }
+
+        public void DeleteItem(T item)
+        {
+            if (Search(item))
+                root = DeleteItem_rec(item, root);
+            else
+                Console.WriteLine("Item not found");
+        }
+
+        public void MakeEmpty()
+        {
+            root = null;
+        }
+
+        public int Size()
+        {
+            return Size_rec(root);
+        }
+
+        public int CheckHeight(BSTNode<T> n)
+        {
+            if (n == null)
+                return 0;
+            else
+                return Math.Max(CheckHeight(n.leftSubTree), CheckHeight(n.rightSubTree)) + 1;
+        }
+
+        public void Preorder()
+        {
+            Console.WriteLine("Preorder:");
+            Console.Write("| ");
+            Preorder_rec(root);
+            Console.WriteLine("");
+        }
+
+        public void Inorder()
+        {
+            Console.WriteLine("Inorder:");
+            Console.Write("| ");
+            Inorder_rec(root);
+            Console.WriteLine("");
+        }
+
         private BSTNode<T> AddItem_rec(T item, BSTNode<T> n)
         {
             if (n == null)
@@ -33,11 +88,6 @@ namespace Lab2_ADST
             return n;
         }
 
-        public bool Search(T item)
-        {
-            return Search_rec(item, root);
-        }
-
         private bool Search_rec(T item, BSTNode<T> n)
         {
             if (n == null)
@@ -48,23 +98,6 @@ namespace Lab2_ADST
                 return Search_rec(item, n.leftSubTree);
             else
                 return Search_rec(item, n.rightSubTree);
-        }
-
-        public T FindMin(BSTNode<T> n)
-        {
-            if (n.leftSubTree == null)
-                return n.data;
-            else
-                return FindMin(n.leftSubTree);
-        }
-
-        
-        public void DeleteItem(T item)
-        {
-            if (Search(item))
-                root = DeleteItem_rec(item, root);
-            else
-                Console.WriteLine("Item not found");
         }
 
         private BSTNode<T> DeleteItem_rec(T item, BSTNode<T> n)
@@ -99,16 +132,6 @@ namespace Lab2_ADST
             return n;
         }
 
-        public void MakeEmpty()
-        {
-            root = null;
-        }
-
-        public int Size()
-        {
-            return Size_rec(root);
-        }
-
         private int Size_rec(BSTNode<T> n)
         {
             if (n == null)
@@ -117,15 +140,7 @@ namespace Lab2_ADST
                 return Size_rec(n.leftSubTree) + Size_rec(n.rightSubTree) + 1;
         }
 
-        public int CheckHeight(BSTNode<T> n)
-        {
-            if (n == null)
-                return 0;
-            else
-                return Math.Max(CheckHeight(n.leftSubTree), CheckHeight(n.rightSubTree)) + 1;
-        }
-
-        public BSTNode<T> Balance(BSTNode<T> n, T item)
+        private BSTNode<T> Balance(BSTNode<T> n, T item)
         {
             int balance = CheckHeight(n.leftSubTree) - CheckHeight(n.rightSubTree);
 
@@ -171,14 +186,7 @@ namespace Lab2_ADST
             return nodeRight;
         }
 
-        public void Preorder()
-        {
-            Console.WriteLine("Preorder:");
-            Console.Write("| ");
-            Preorder_rec(root);
-            Console.WriteLine("");
-        }
-
+        
         private void Preorder_rec(BSTNode<T> n)
         {
             if (n == null)
@@ -189,14 +197,6 @@ namespace Lab2_ADST
                 Preorder_rec(n.leftSubTree);
                 Preorder_rec(n.rightSubTree);
             }
-        }
-
-        public void Inorder()
-        {
-            Console.WriteLine("Inorder:");
-            Console.Write("| ");
-            Inorder_rec(root);
-            Console.WriteLine("");
         }
 
         private void Inorder_rec(BSTNode<T> n)
@@ -230,5 +230,25 @@ namespace Lab2_ADST
                 Console.Write(n.data + " | ");
             }
         }
+
+        // ADDITIONAL
+
+        public static BSTNode<int> DeleteEven(BalansedSearchTree<int> tree, BSTNode<int> n) 
+        {
+            if (n == null)
+                return null;
+            else
+            {
+                while (n.data % 2 == 0)
+                    n = tree.DeleteItem_rec(n.data, n);
+
+                n.leftSubTree = DeleteEven(tree, n.leftSubTree);
+                n.rightSubTree = DeleteEven(tree, n.rightSubTree);
+
+                return n;
+            }
+        }
+
+        
     }
 }

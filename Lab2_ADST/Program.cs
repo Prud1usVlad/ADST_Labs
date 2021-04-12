@@ -22,9 +22,10 @@ namespace Lab2_ADST
             a.Preorder();
             a.Postorder();
 
-            a.DeleteItem(50);
-            a.DeleteItem(55);
+            BalansedSearchTree<int>.DeleteEven(a, a.root);
+
             a.Preorder();
+            
             
         }
     }
