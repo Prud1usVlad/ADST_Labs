@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Lab2_ADST
 {
-    class BSTNode<T> where T: IComparable
+    class BBSTNode<T> where T: IComparable
     {
         public T data;
-        public BSTNode<T> leftSubTree;
-        public BSTNode<T> rightSubTree;
+        public BBSTNode<T> leftSubTree;
+        public BBSTNode<T> rightSubTree;
 
-        public BSTNode(T item = default(T), BSTNode<T> l = null, BSTNode<T> r = null)
+        public BBSTNode(T item = default(T), BBSTNode<T> l = null, BBSTNode<T> r = null)
         {
             data = item;
             leftSubTree = l;

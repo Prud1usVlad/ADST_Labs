@@ -6,7 +6,7 @@ namespace Lab2_ADST
     {
         static void Main(string[] args)
         {
-            var a = new BalansedSearchTree<int>();
+            var a = new BBST<int>();
 
             a.AddItem(15);
             a.AddItem(10);
@@ -21,12 +21,6 @@ namespace Lab2_ADST
             a.Inorder();
             a.Preorder();
             a.Postorder();
-
-            BalansedSearchTree<int>.DeleteEven(a, a.root);
-
-            a.Preorder();
-            
-            
         }
     }
 }
