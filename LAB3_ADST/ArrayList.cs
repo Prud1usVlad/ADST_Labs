@@ -28,7 +28,10 @@ namespace LAB3_ADST
             array = new T[size];
         }
 
-        
+        public bool isFull()
+        {
+            return length > count;
+        }
 
 
 
