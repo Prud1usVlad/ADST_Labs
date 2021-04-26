@@ -33,6 +33,11 @@ namespace LAB3_ADST
             return length > count;
         }
 
+        public int getLength()
+        {
+            return length;
+        }
+
 
 
 
