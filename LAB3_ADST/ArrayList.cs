@@ -8,7 +8,7 @@ namespace LAB3_ADST
     {
         private int length;
 
-        private int count;
+        private int last;
 
         private T[] array;
        
@@ -24,13 +24,18 @@ namespace LAB3_ADST
         public ArrayList(int size)
         {
             length = size;
-            count = 0;
+            last = -1;
             array = new T[size];
         }
 
         public bool isFull()
         {
-            return length > count;
+            return length > last;
+        }
+
+        public bool isEmpty()
+        {
+            return last == -1;
         }
 
         public int getLength()
