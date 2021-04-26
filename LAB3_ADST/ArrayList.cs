@@ -6,7 +6,12 @@ namespace LAB3_ADST
 {
     class ArrayList<T>
     {
+        private int length;
+
+        private int count;
+
         private T[] array;
+       
         
         public T this[int index]
         {
@@ -15,5 +20,18 @@ namespace LAB3_ADST
                 return array[index];
             }
         }
+
+        public ArrayList(int size)
+        {
+            length = size;
+            count = 0;
+            array = new T[size];
+        }
+
+        
+
+
+
+
     }
 }
