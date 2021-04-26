@@ -28,22 +28,29 @@ namespace LAB3_ADST
             array = new T[size];
         }
 
-        public bool isFull()
+        public bool IsFull()
         {
-            return length > last;
+            return length <= last + 1;
         }
 
-        public bool isEmpty()
+        public bool IsEmpty()
         {
             return last == -1;
         }
 
-        public int getLength()
+        public int GetLength()
         {
             return length;
         }
 
+        public void Add(T item)
+        {
+            if (!IsFull())
+                array[++last] = item;
 
+            else
+                Console.WriteLine("List is full");
+        }
 
 
     }

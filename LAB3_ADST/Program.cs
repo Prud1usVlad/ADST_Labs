@@ -6,7 +6,14 @@ namespace LAB3_ADST
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var a = new ArrayList<int>(4);
+            Console.WriteLine(a.GetLength());
+
+            a.Add(4);
+            a.Add(9);
+            a.Add(0);
+            a.Add(13);
+            a.Add(12);
         }
     }
 }
