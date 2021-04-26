@@ -52,6 +52,15 @@ namespace LAB3_ADST
                 Console.WriteLine("List is full");
         }
 
+        public void Print()
+        {
+            Console.Write("| ");
+            for (int i = 0; i <= last; i++)
+                Console.Write(array[i] + " | ");
+
+            Console.WriteLine("");
+        }
+
 
     }
 }

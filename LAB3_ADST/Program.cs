@@ -14,6 +14,8 @@ namespace LAB3_ADST
             a.Add(0);
             a.Add(13);
             a.Add(12);
+
+            a.Print();
         }
     }
 }
