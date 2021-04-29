@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab2_ATSD
+namespace Lab3_ADST
 {
-    class BinarySearchTree
+    class ArrayList<T>
     {
+        private T array;
+
+
+
     }
 }
