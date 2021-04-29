@@ -7,6 +7,7 @@ namespace Lab2_ATSD
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
         }
     }
 }

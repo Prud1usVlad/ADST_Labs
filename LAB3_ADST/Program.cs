@@ -16,6 +16,8 @@ namespace LAB3_ADST
             a.Add(12);
 
             a.Print();
+            a.Heapsort(a.array, 4);
+            a.Print();
         }
     }
 }
