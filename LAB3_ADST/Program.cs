@@ -18,12 +18,8 @@ namespace LAB3_ADST
             a.Add(45);
             a.Add(69);
 
-            a.SettleRootDesc(1, a.last);
             a.Print();
-            a.MakeMinHeap(a.last);
-            a.Print();
-            a.HeapSortDescending(a.last);
-            a.Print();
+            a.FindKMax(11);
         }
     }
 }

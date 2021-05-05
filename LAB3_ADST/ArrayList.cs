@@ -148,5 +148,27 @@ namespace LAB3_ADST
             }
         }
 
+        //////////////// Additional methods
+
+        public void FindKMax(int k)
+        {
+            HeapSortDescending(last);
+
+            if (k > last)
+            {
+                Console.WriteLine("In list do not exist so much elements, thats all..");
+                for (var t = 1; t <= last; t++)
+                    Console.Write($"{array[t]} ");
+            }
+            else if (k <= 0)
+                Console.WriteLine("K should be higer than 0");
+            else
+            {
+                Console.WriteLine($"{k} largest elements in the list:");
+
+                for (var i = 1; i <= k && i <= last; i++)
+                    Console.Write($"{array[i]}  ");
+            }
+        }
     }
 }
