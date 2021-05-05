@@ -21,6 +21,8 @@ namespace LAB3_ADST
             a.Print();
             a.MakeMaxHeap(a.last);
             a.Print();
+            a.HeapSort(a.last);
+            a.Print();
         }
     }
 }

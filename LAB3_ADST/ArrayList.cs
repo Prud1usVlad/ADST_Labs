@@ -63,8 +63,24 @@ namespace LAB3_ADST
         
         public void MakeMaxHeap(int last)
         {
-            for (int i = last / 2; i >= 1; i--)        // heap construction loop
+            for (int i = last / 2; i >= 1; i--)     
                 SettleRoot(i, last);
+        }
+
+        public void HeapSort(int last)
+        {
+            int n = last - 1;
+            MakeMaxHeap(last);    
+            
+            for (int end = n; end >= 1; end--)  // actual sorting loop
+            {
+                T z = array[1];
+                array[1] = array[end + 1];
+                array[end + 1] = z;
+
+                SettleRoot(1, end);
+            }
+
         }
 
         private void SettleRoot(int root, int last)
