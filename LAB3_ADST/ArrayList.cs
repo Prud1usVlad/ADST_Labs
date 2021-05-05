@@ -24,18 +24,19 @@ namespace LAB3_ADST
         public ArrayList(int size)
         {
             length = size;
-            last = -1;
-            array = new T[size];
+            last = 0;
+            array = new T[size + 1];
+            array[0] = default(T);
         }
 
         public bool IsFull()
         {
-            return length <= last + 1;
+            return length <= last;
         }
 
         public bool IsEmpty()
         {
-            return last == -1;
+            return last == 0;
         }
 
         public int GetLength()
@@ -47,7 +48,6 @@ namespace LAB3_ADST
         {
             if (!IsFull())
                 array[++last] = item;
-
             else
                 Console.WriteLine("List is full");
         }
@@ -55,48 +55,10 @@ namespace LAB3_ADST
         public void Print()
         {
             Console.Write("| ");
-            for (int i = 0; i <= last; i++)
+            for (int i = 1; i <= last; i++)
                 Console.Write(array[i] + " | ");
 
             Console.WriteLine("");
         }
-
-        private void SettleRoot(T[] L, int root, int last)
-        {
-            int child, unsettled = root;
-            while (2 * unsettled <= last)           // A current unsettled root is not a leaf.
-            {
-                if (2 * unsettled < last && L[2 * unsettled + 1].CompareTo(L[2 * unsettled]) > 0)
-                    child = 2 * unsettled + 1;  // The right child has a larger key.
-                else child = 2 * unsettled;     // The left child has a larger key.
-
-                if (L[unsettled].CompareTo(L[child]) < 0)
-                {
-                    T z = L[unsettled];
-                    L[unsettled] = L[child];
-                    L[child] = z;
-                    unsettled = child;
-                }
-                else break;
-            }//while
-        }//SettleRoot
-
-        public void Heapsort(T[] L, int N)
-        {
-            int n = N - 1;              // n is heap size. L[0] is not used.
-            for (int i = n / 2; i >= 1; i--)        // heap construction loop
-                SettleRoot(L, i, n);
-            for (int end = n - 1; end >= 1; end--)  // actual sorting loop
-            {
-                T z = L[1];
-                L[1] = L[end + 1];
-                L[end + 1] = z;
-
-                SettleRoot(L, 1, end);
-            }
-        }//Heapsort
-
-
-
     }
 }

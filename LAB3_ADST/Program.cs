@@ -6,17 +6,20 @@ namespace LAB3_ADST
     {
         static void Main(string[] args)
         {
-            var a = new ArrayList<int>(4);
+            var a = new ArrayList<int>(10);
             Console.WriteLine(a.GetLength());
 
-            a.Add(4);
-            a.Add(9);
-            a.Add(0);
+            a.Add(11);
+            a.Add(7);
+            a.Add(88);
+            a.Add(96);
+            a.Add(54);
+            a.Add(31);
+            a.Add(23);
             a.Add(13);
-            a.Add(12);
+            a.Add(45);
+            a.Add(69);
 
-            a.Print();
-            a.Heapsort(a.array, 4);
             a.Print();
         }
     }

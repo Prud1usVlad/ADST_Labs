@@ -23,7 +23,7 @@ namespace Lab2_ADST
             a.Postorder();
 
             Console.WriteLine($"Size: {a.Size()}");
-            a.DeleteItem(11);
+            a.DeleteItem(12);
             a.Preorder();
             Console.WriteLine($"Size: {a.Size()}");
             Console.WriteLine($"Includes 11: {a.Search(11)}");
