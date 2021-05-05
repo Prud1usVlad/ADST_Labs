@@ -64,10 +64,16 @@ namespace LAB3_ADST
         public void MakeMaxHeap(int last)
         {
             for (int i = last / 2; i >= 1; i--)     
-                SettleRoot(i, last);
+                SettleRootAsc(i, last);
         }
 
-        public void HeapSort(int last)
+        public void MakeMinHeap(int last)
+        {
+            for (int i = last / 2; i >= 1; i--)
+                SettleRootDesc(i, last);
+        }
+
+        public void HeapSortAscending(int last)
         {
             int n = last - 1;
             MakeMaxHeap(last);    
@@ -78,22 +84,60 @@ namespace LAB3_ADST
                 array[1] = array[end + 1];
                 array[end + 1] = z;
 
-                SettleRoot(1, end);
+                SettleRootAsc(1, end);
             }
 
         }
 
-        private void SettleRoot(int root, int last)
+        public void HeapSortDescending(int last)
+        {
+            int n = last - 1;
+            MakeMinHeap(last);
+
+            for (int end = n; end >= 1; end--)  // actual sorting loop
+            {
+                T z = array[1];
+                array[1] = array[end + 1];
+                array[end + 1] = z;
+
+                SettleRootDesc(1, end);
+            }
+
+        }
+
+        private void SettleRootAsc(int root, int last)
         {
             int child, unsettled = root;
-            // While unsettned not a leaf
+            // While unsettned is not a leaf
             while (2 * unsettled <= last)
             {
                 if (2 * unsettled < last && array[2 * unsettled + 1].CompareTo(array[2 * unsettled]) > 0)
-                    child = 2 * unsettled + 1;  // The right child has a larger key.
-                else child = 2 * unsettled;     // The left child has a larger key.
+                    child = 2 * unsettled + 1;  
+                else 
+                    child = 2 * unsettled;     
 
                 if (array[unsettled].CompareTo(array[child]) < 0)
+                {
+                    T z = array[unsettled];
+                    array[unsettled] = array[child];
+                    array[child] = z;
+                    unsettled = child;
+                }
+                else break;
+            }
+        }
+
+        private void SettleRootDesc(int root, int last)
+        {
+            int child, unsettled = root;
+            // While unsettned is not a leaf
+            while (2 * unsettled <= last)
+            {
+                if (2 * unsettled < last && array[2 * unsettled + 1].CompareTo(array[2 * unsettled]) < 0)
+                    child = 2 * unsettled + 1;
+                else child = 2 * unsettled;
+
+                if (array[unsettled].CompareTo(array[child]) > 0)
                 {
                     T z = array[unsettled];
                     array[unsettled] = array[child];
