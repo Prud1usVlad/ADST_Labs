@@ -61,7 +61,13 @@ namespace LAB3_ADST
             Console.WriteLine("");
         }
         
-        public void SettleRoot(int root, int last)
+        public void MakeMaxHeap(int last)
+        {
+            for (int i = last / 2; i >= 1; i--)        // heap construction loop
+                SettleRoot(i, last);
+        }
+
+        private void SettleRoot(int root, int last)
         {
             int child, unsettled = root;
             // While unsettned not a leaf

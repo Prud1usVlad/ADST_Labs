@@ -19,7 +19,7 @@ namespace LAB3_ADST
             a.Add(69);
 
             a.Print();
-            a.SettleRoot(1, a.last);
+            a.MakeMaxHeap(a.last);
             a.Print();
         }
     }
