@@ -7,8 +7,6 @@ namespace LAB3_ADST
         static void Main(string[] args)
         {
             var a = new ArrayList<int>(10);
-            Console.WriteLine(a.GetLength());
-
             a.Add(11);
             a.Add(7);
             a.Add(88);
@@ -20,6 +18,8 @@ namespace LAB3_ADST
             a.Add(45);
             a.Add(69);
 
+            a.Print();
+            a.SettleRoot(1, a.last);
             a.Print();
         }
     }

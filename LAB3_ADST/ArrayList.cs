@@ -8,7 +8,7 @@ namespace LAB3_ADST
     {
         private int length;
 
-        private int last;
+        public int last;
 
         public T[] array;
        
@@ -60,5 +60,27 @@ namespace LAB3_ADST
 
             Console.WriteLine("");
         }
+        
+        public void SettleRoot(int root, int last)
+        {
+            int child, unsettled = root;
+            // While unsettned not a leaf
+            while (2 * unsettled <= last)
+            {
+                if (2 * unsettled < last && array[2 * unsettled + 1].CompareTo(array[2 * unsettled]) > 0)
+                    child = 2 * unsettled + 1;  // The right child has a larger key.
+                else child = 2 * unsettled;     // The left child has a larger key.
+
+                if (array[unsettled].CompareTo(array[child]) < 0)
+                {
+                    T z = array[unsettled];
+                    array[unsettled] = array[child];
+                    array[child] = z;
+                    unsettled = child;
+                }
+                else break;
+            }
+        }
+
     }
 }
